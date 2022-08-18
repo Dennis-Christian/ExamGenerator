@@ -8,10 +8,16 @@ using System.Windows;
 
 namespace ExamGenerator
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            ExamGeneratorContext.Load();
+        }
+
+        ~App()
+        {
+            ExamGeneratorContext.Save();
+        }
     }
 }

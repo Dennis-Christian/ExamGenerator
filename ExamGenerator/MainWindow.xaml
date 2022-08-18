@@ -5,8 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExamGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="{Binding BrandingAppname}" Height="450" Width="800" Background="#ff939393" WindowStartupLocation="CenterScreen" WindowState="Maximized" SnapsToDevicePixels="True">
+    <Grid Margin="4">
+        <Grid.Resources>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="CornerRadius" Value="8"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.RowSpan="2" MinWidth="120">
+            <DockPanel LastChildFill="False">
+                <DockPanel.Resources>
+                    <Style TargetType="RadioButton">
+                        <Setter
+							Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate
+									TargetType="{x:Type RadioButton}">
+                                    <Border
+										x:Name="shadow"
+										Margin="2"
+										Padding="1,1,2,2"
+                                        CornerRadius="2"
+										Background="LightGray">
+                                        <Border
+											Background="White"
+											Padding="5"
+                                            CornerRadius="2"
+											HorizontalAlignment="Stretch">
+                                            <ContentPresenter
+												VerticalAlignment="Center"
+												HorizontalAlignment="Center" />
+                                        </Border>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger
+											Property="IsMouseOver"
+											Value="True">
+                                            <Setter
+												Property="FontWeight"
+												Value="Medium" />
+                                            <Setter
+												TargetName="shadow"
+												Property="Background"
+												Value="DarkGray" />
+                                        </Trigger>
+                                        <Trigger
+											Property="IsChecked"
+											Value="True">
+                                            <Setter
+												Property="FontWeight"
+												Value="Bold" />
+                                            <Setter
+												Property="Foreground"
+												Value="#ff0000" />
+                                            <Setter
+												TargetName="shadow"
+												Property="Background"
+												Value="Gray" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DockPanel.Resources>
+                <Image Source="{Binding BrandingImage}" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Dashboard}" Content="Dashboard" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Questions}" Content="Questions" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Categories}" Content="Categories" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Presets}" Content="Presets" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Exams}" Content="Exams" DockPanel.Dock="Top"/>
+                <RadioButton IsChecked="{Binding SelectedView.Options}" Content="Options" DockPanel.Dock="Bottom"/>
+                <RadioButton IsChecked="{Binding SelectedView.Manual}" Content="Manual" DockPanel.Dock="Bottom"/>
+            </DockPanel>
+        </Border>
+        <Border Grid.Column="1" MinHeight="24">
+            <Label Content="{Binding Breadcrumb}"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1">
+            <Frame Name="NavigationFrame" NavigationUIVisibility="Hidden"/>
+        </Border>
     </Grid>
 </Window>

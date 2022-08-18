@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IronPdf" Version="2022.8.7894" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+  </ItemGroup>
+
 </Project>
