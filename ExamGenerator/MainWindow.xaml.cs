@@ -34,7 +34,8 @@ namespace ExamGenerator
 
             this.Closing += (sender, args) => ExamGeneratorContext.Save();
 
-            context.Navigate(NavigationFrame, new Pages.Dashboard());
+            context.NavigationFrame = NavigationFrame;
+            context.Navigate(new Pages.Dashboard());
         }
 
         void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)

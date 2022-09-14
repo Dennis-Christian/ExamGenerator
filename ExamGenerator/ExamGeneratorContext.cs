@@ -28,6 +28,7 @@ namespace ExamGenerator
             rng = new();
             SelectedView = new();
             SelectedView.SelectedViewChanged += (sender, args) => OnPropertyChanged(nameof(Breadcrumb));
+            SelectedView.SelectedViewChanged += (sender, args) => Navigate(SelectedView.SelectedPage);
 
             labels = new();
 
@@ -314,9 +315,11 @@ namespace ExamGenerator
 
         #region methods
 
-        public void Navigate(Frame frame, Page page)
+        public Frame NavigationFrame { get; set; }
+
+        public void Navigate(Page page)
         {
-            frame.NavigationService.Navigate(page);
+            NavigationFrame.NavigationService.Navigate(page);
 
             if (page is Pages.Dashboard && !SelectedView.Dashboard)
                 SelectedView.Dashboard = true;
@@ -544,6 +547,8 @@ namespace ExamGenerator
                 Dashboard = true;
             }
 
+            public Page SelectedPage { get; private set; }
+
             public bool Dashboard
             {
                 get { return dashboard; }
@@ -699,55 +704,67 @@ namespace ExamGenerator
                     {
                         case Views.Dashboard:
                             dashboard = true;
+                            SelectedPage = new Pages.Dashboard();
                             break;
 
                         case Views.Exams:
                             exams = true;
+                            SelectedPage = new Pages.Exams();
                             break;
 
                         case Views.ExamDetail:
                             exams = true;
                             examDetails = true;
+                            SelectedPage = new Pages.ExamDetail();
                             break;
 
                         case Views.ExamCreate:
                             exams = true;
                             examCreate = true;
+                            SelectedPage = new Pages.ExamCreate();
                             break;
 
                         case Views.Questions:
                             questions = true;
+                            SelectedPage = new Pages.Questions();
                             break;
 
                         case Views.QuestionDetail:
                             questions = true;
                             questionDetails = true;
+                            SelectedPage = new Pages.QuestionDetail();
                             break;
 
                         case Views.Categories:
                             categories = true;
+                            SelectedPage = new Pages.Categories();
                             break;
 
                         case Views.CategoryDetail:
                             categories = true;
                             categoryDetails = true;
+                            SelectedPage = new Pages.CategoryDetail();
                             break;
 
                         case Views.Presets:
                             presets = true;
+                            SelectedPage = new Pages.Presets();
                             break;
 
                         case Views.PresetDetail:
                             presets = true;
                             presetDetails = true;
+                            SelectedPage = new Pages.PresetDetail();
                             break;
 
                         case Views.Manual:
                             manual = true;
+                            SelectedPage = new Pages.Manual();
                             break;
 
                         case Views.Options:
                             options = true;
+                            SelectedPage = new Pages.Options();
                             break;
 
                         default:
