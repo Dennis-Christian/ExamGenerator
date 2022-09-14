@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ExamGenerator
@@ -307,6 +308,47 @@ namespace ExamGenerator
         #endregion
 
         #region methods
+
+        public void Navigate(Frame frame, Page page)
+        {
+            frame.NavigationService.Navigate(page);
+
+            if (page is Pages.Dashboard && !SelectedView.Dashboard)
+                SelectedView.Dashboard = true;
+
+            if (page is Pages.Categories && !SelectedView.Categories)
+                SelectedView.Categories = true;
+
+            if (page is Pages.CategoryDetail && !SelectedView.CategoryDetails)
+                SelectedView.CategoryDetails = true;
+
+            if (page is Pages.ExamCreate && !SelectedView.ExamCreate)
+                SelectedView.ExamCreate = true;
+
+            if (page is Pages.ExamDetail && !SelectedView.ExamDetails)
+                SelectedView.ExamDetails = true;
+
+            if (page is Pages.Exams && !SelectedView.Exams)
+                SelectedView.Exams = true;
+
+            if (page is Pages.Manual && !SelectedView.Manual)
+                SelectedView.Manual = true;
+
+            if (page is Pages.Options && !SelectedView.Options)
+                SelectedView.Options = true;
+
+            if (page is Pages.PresetDetail && !SelectedView.PresetDetails)
+                SelectedView.PresetDetails = true;
+
+            if (page is Pages.Presets && !SelectedView.Presets)
+                SelectedView.Presets = true;
+
+            if (page is Pages.QuestionDetail && !SelectedView.QuestionDetails)
+                SelectedView.QuestionDetails = true;
+
+            if (page is Pages.Questions && !SelectedView.Questions)
+                SelectedView.Questions = true;
+        }
 
         public static int GetNextCategoryId()
         {
@@ -760,7 +802,7 @@ namespace ExamGenerator
 
         #endregion
 
-        #region Headertext
+        #region Headertext/Breadcrumb
 
         public string Breadcrumb
         {

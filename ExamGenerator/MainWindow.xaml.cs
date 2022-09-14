@@ -17,6 +17,8 @@ namespace ExamGenerator
 {
     public partial class MainWindow : Window
     {
+        ExamGeneratorContext context;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,9 +29,12 @@ namespace ExamGenerator
 
             ExamGeneratorContext.Load();
 
-            this.DataContext = ExamGeneratorContext.Instance;
+            context = ExamGeneratorContext.Instance;
+            this.DataContext = context;
 
             this.Closing += (sender, args) => ExamGeneratorContext.Save();
+
+            context.Navigate(NavigationFrame, new Pages.Dashboard());
         }
 
         void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ExamGenerator
+namespace ExamGenerator.Pages
 {
     /// <summary>
     /// Interaktionslogik für Presets.xaml
