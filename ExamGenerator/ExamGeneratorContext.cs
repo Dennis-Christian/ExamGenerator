@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace ExamGenerator
 {
-    class ExamGeneratorContext : INotifyPropertyChanged
+    partial class ExamGeneratorContext : INotifyPropertyChanged
     {
         #region singleton implementation
 
@@ -27,7 +27,9 @@ namespace ExamGenerator
         {
             rng = new();
             SelectedView = new();
-            SelectedView.SelectedViewChanged += (sender, args) => OnPropertyChanged("Breadcrumb");
+            SelectedView.SelectedViewChanged += (sender, args) => OnPropertyChanged(nameof(Breadcrumb));
+
+            labels = new();
 
             CategoryCatalogue = new();
             PresetCatalogue = new ObservableCollection<Preset>();
@@ -42,11 +44,14 @@ namespace ExamGenerator
 
         #region fields
 
+        static LabelsContainer labels;
         static Random rng;
 
         #endregion
 
         #region properties
+
+        public LabelsContainer Labels { get { return labels; } }
 
         public static Question SelectedQuestion
         {

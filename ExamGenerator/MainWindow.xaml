@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExamGenerator"
         mc:Ignorable="d"
-        Title="{Binding BrandingAppname}" Height="450" Width="800" Background="#ff939393" WindowStartupLocation="CenterScreen" WindowState="Maximized" SnapsToDevicePixels="True">
+        Title="{Binding BrandingAppname}" Height="450" Width="800" Background="#ff939393" WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized" SnapsToDevicePixels="True" FontFamily="Verdana">
     <Grid Margin="4">
         <Grid.Resources>
             <Style TargetType="Border">
