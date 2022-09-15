@@ -15,17 +15,17 @@
 							Content="Add"
 							Margin="0,0,4,4"
 							Padding="3,3,3,3"
-							Command="{Binding CreateCategoryCommand}" />
+							Command="{Binding CreateKategorieCommand}" />
             <Button
 							Content="Edit"
 							Margin="0,0,4,4"
 							Padding="3,3,3,3"
-							Command="{Binding EditCategoryCommand}" />
+							Command="{Binding EditKategorieCommand}" />
             <Button
 							Content="Delete"
 							Margin="0,0,4,4"
 							Padding="3,3,3,3"
-							Command="{Binding DeleteCategoryCommand}" />
+							Command="{Binding DeleteKategorieCommand}" />
         </StackPanel>
         <DataGrid
 						ItemsSource="{Binding CategoryCatalogue}"

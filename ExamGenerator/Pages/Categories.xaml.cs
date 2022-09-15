@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace ExamGenerator.Pages
 {
-    /// <summary>
-    /// Interaktionslogik für Categories.xaml
-    /// </summary>
     public partial class Categories : Page
     {
         public Categories()
         {
             InitializeComponent();
+            DataContext = ExamGeneratorContext.Instance;
         }
     }
 }
