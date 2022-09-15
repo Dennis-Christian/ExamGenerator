@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace ExamGenerator.Pages
 {
-    /// <summary>
-    /// Interaktionslogik für Presets.xaml
-    /// </summary>
     public partial class Presets : Page
     {
         public Presets()
         {
             InitializeComponent();
+            DataContext = ExamGeneratorContext.Instance;
         }
     }
 }
