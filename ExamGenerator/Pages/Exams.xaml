@@ -38,16 +38,16 @@
 								Header="Id" />
                 <DataGridTextColumn
 								Binding="{Binding CourseNumber}"
-								Header="Description" />
+								Header="Coursenumber" />
                 <DataGridTextColumn
 								Binding="{Binding Questions}"
-								Header="Easy" />
+								Header="Questions" />
                 <DataGridTextColumn
 								Binding="{Binding Preset}"
-								Header="Medium" />
+								Header="Preset" />
                 <DataGridTextColumn
 								Binding="{Binding Annotation}"
-								Header="Difficult" />
+								Header="Notes" />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>
