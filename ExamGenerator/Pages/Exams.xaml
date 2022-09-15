@@ -7,8 +7,49 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Exams">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="0,0,0,4">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="8,4"/>
+                    <Setter Property="Margin" Value="0,0,4,0"/>
+                </Style>
+            </DockPanel.Resources>
+            <Button
+							Content="Add"
+							Command="{Binding CreateKlausurCommand}" />
+            <Button
+							Content="Edit"
+							Command="{Binding EditKlausurCommand}" />
+        </DockPanel>
+        <DataGrid
+						ItemsSource="{Binding ExamCatalogue}"
+						CanUserReorderColumns="False"
+						HeadersVisibility="Column"
+						SelectionMode="Single"
+						CanUserAddRows="False"
+						CanUserDeleteRows="False"
+						IsReadOnly="True"
+						AutoGenerateColumns="False"
+						SelectedItem="{Binding SelectedCategory}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+								Binding="{Binding Id}"
+								Header="Id" />
+                <DataGridTextColumn
+								Binding="{Binding CourseNumber}"
+								Header="Description" />
+                <DataGridTextColumn
+								Binding="{Binding Questions}"
+								Header="Easy" />
+                <DataGridTextColumn
+								Binding="{Binding Preset}"
+								Header="Medium" />
+                <DataGridTextColumn
+								Binding="{Binding Annotation}"
+								Header="Difficult" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 
-    <Grid>
-        
-    </Grid>
 </Page>
