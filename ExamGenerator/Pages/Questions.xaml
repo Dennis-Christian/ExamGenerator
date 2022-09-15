@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Questions">
     <DockPanel>
-    <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="0,0,0,4">
+        <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="0,0,0,4">
             <DockPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Padding" Value="8,4"/>
@@ -17,7 +17,8 @@
             </DockPanel.Resources>
             <Button DockPanel.Dock="Left" Content="Create" Command="{Binding CreateFrageCommand}"/>
             <Button DockPanel.Dock="Left" Content="Edit" Command="{Binding EditFrageCommand}"/>
-    </DockPanel>
+            <Button DockPanel.Dock="Left" Content="Delete" Command="{Binding DeleteFrageCommand}"/>
+        </DockPanel>
         <DataGrid
 					ItemsSource="{Binding QuestionCatalogue}"
 					CanUserReorderColumns="False"
@@ -36,13 +37,13 @@
 							Header="Id" />
                 <DataGridTextColumn
 							Binding="{Binding Problem}"
-							Header="Fragestellung" />
+							Header="Question" />
                 <DataGridTextColumn
 							Binding="{Binding Category.Description}"
-							Header="Kategorie" />
+							Header="Category" />
                 <DataGridTextColumn
 							Binding="{Binding Mode}"
-							Header="Modus" />
+							Header="Mode" />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

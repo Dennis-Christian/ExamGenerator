@@ -7,26 +7,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Categories">
-    <StackPanel>
-        <StackPanel
-						DockPanel.Dock="Top"
-						Orientation="Horizontal">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="0,0,0,4">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="8,4"/>
+                    <Setter Property="Margin" Value="0,0,4,0"/>
+                </Style>
+            </DockPanel.Resources>
             <Button
 							Content="Add"
-							Margin="0,0,4,4"
-							Padding="3,3,3,3"
 							Command="{Binding CreateKategorieCommand}" />
             <Button
 							Content="Edit"
-							Margin="0,0,4,4"
-							Padding="3,3,3,3"
 							Command="{Binding EditKategorieCommand}" />
             <Button
 							Content="Delete"
-							Margin="0,0,4,4"
-							Padding="3,3,3,3"
 							Command="{Binding DeleteKategorieCommand}" />
-        </StackPanel>
+        </DockPanel>
         <DataGrid
 						ItemsSource="{Binding CategoryCatalogue}"
 						CanUserReorderColumns="False"
@@ -55,5 +53,5 @@
 								Header="Difficult" />
             </DataGrid.Columns>
         </DataGrid>
-    </StackPanel>
+    </DockPanel>
 </Page>
